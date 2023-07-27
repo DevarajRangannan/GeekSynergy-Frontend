@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { CONTAINER, LOGO_CONTAINER } from './style/NavBar'
 import {ReactComponent as MenuIcon} from "../asserts/menu.svg"
 import {ReactComponent as CloseIcon} from "../asserts/close.svg"
@@ -7,18 +7,36 @@ const LOGIN_STATUS = JSON.parse(localStorage.getItem("Login_Status"))
 
 export default function NavBar() {
 
-    const toggleNav = ()=>{
-        const close_icon = document.getElementById("close_icon")
+    useEffect(() => {
 
-        const a = close_icon.classList.contains("-translate-x-0")
+        const scrollableDiv = document.getElementById('nav_sec');
+    
+        const handleScroll = (event) => {
+          event.preventDefault();  
+        };
+    
+        
+        scrollableDiv.addEventListener('wheel', handleScroll, { passive: false });
+        scrollableDiv.addEventListener('touchmove', handleScroll, { passive: false });
+    
+        return () => {
+          scrollableDiv.removeEventListener('wheel', handleScroll);
+          scrollableDiv.addEventListener('touchmove', handleScroll);
+        };
+      }, []);
+
+    const toggleNav = ()=>{
+        const nav_sec = document.getElementById("nav_sec")
+
+        const a = nav_sec.classList.contains("-translate-x-0")
 
         if(a){
-            close_icon.classList.remove("-translate-x-0")
-            close_icon.classList.add("-translate-x-full")
+            nav_sec.classList.remove("-translate-x-0")
+            nav_sec.classList.add("-translate-x-full")
         }
         else{
-            close_icon.classList.add("-translate-x-0")
-            close_icon.classList.remove("-translate-x-full")
+            nav_sec.classList.add("-translate-x-0")
+            nav_sec.classList.remove("-translate-x-full")
         }
     }
 
@@ -40,7 +58,7 @@ export default function NavBar() {
         <div className=' md:hidden fixed   m-2 p-3 border-2 border-black rounded-xl' onClick={toggleNav}>
             <MenuIcon/>
         </div>
-        <div className={CONTAINER} id='close_icon'>
+        <div className={CONTAINER} id='nav_sec'>
             <div className='h-full md:hidden flex'>
                 <div className='relative w-[80%] h-full bg-emerald-900 overflow-hidden'>
                     <a className='w-[90%] m-auto mt-5 p-3 rounded flex items-center justify-center bg-white overflow-hidden' href="https://www.geeksynergy.com/" >
