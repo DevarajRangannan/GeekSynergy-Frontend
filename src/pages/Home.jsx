@@ -1,4 +1,5 @@
 import React from 'react'
+import NavBar from '../componets/NavBar'
 
 const LOGIN_STATUS = JSON.parse(localStorage.getItem("Login_Status"))
 
@@ -21,7 +22,8 @@ export default function Home() {
     return (
         
         <>
-            <div>Home</div>
+            <NavBar/>
+            <div className='md:mt-16'>Home</div>
             <button onClick={logout}>Logout</button>
         </>
     )
