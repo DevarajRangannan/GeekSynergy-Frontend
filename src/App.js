@@ -1,7 +1,7 @@
 function App() {
   return (
-    <div className="App">
-      GeeksSynergy
+    <div className="App text-xl text-red-500">
+      GeeksSynergy.deva.asia
     </div>
   );
 }
