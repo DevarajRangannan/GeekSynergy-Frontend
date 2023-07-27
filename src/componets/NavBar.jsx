@@ -31,12 +31,17 @@ export default function NavBar() {
         const a = nav_sec.classList.contains("-translate-x-0")
 
         if(a){
+            
+            
             nav_sec.classList.remove("-translate-x-0")
             nav_sec.classList.add("-translate-x-full")
         }
         else{
+            
             nav_sec.classList.add("-translate-x-0")
             nav_sec.classList.remove("-translate-x-full")
+            
+
         }
     }
 
@@ -55,10 +60,10 @@ export default function NavBar() {
 
   return (
     <>
-        <div className=' md:hidden fixed   m-2 p-3 border-2 border-black rounded-xl' onClick={toggleNav}>
+        <div className=' md:hidden fixed top-0 z-20 bg-white m-2 p-3 border-2 border-black rounded-xl' onClick={toggleNav}>
             <MenuIcon/>
         </div>
-        <div className={CONTAINER} id='nav_sec'>
+        <div className={`${CONTAINER}`} id='nav_sec'>
             <div className='h-full md:hidden flex'>
                 <div className='relative w-[80%] h-full bg-emerald-900 overflow-hidden'>
                     <a className='w-[90%] m-auto mt-5 p-3 rounded flex items-center justify-center bg-white overflow-hidden' href="https://www.geeksynergy.com/" >
@@ -68,13 +73,13 @@ export default function NavBar() {
 
                     <div className='text-center text-white p-3 m-10 bg-green-800 rounded overflow-hidden'>Company Info</div>
 
-                    <div className='absolute w-full p-3 bottom-0 border-t-2 text-white rounded-xl flex flex-col justify-center items-center'>
+                    <div className='absolute w-full mb-16 p-3 bottom-0 border-t-2 text-white rounded-xl flex flex-col justify-center items-center'>
                         <h3 className='p-3 text-lg'>{JSON.parse(localStorage.getItem("Login_Status")).username}</h3>
                         <button className='py-3 px-10 bg-red-500 rounded' onClick={logout}>Logout</button>
                     </div>
                 </div>
                 <div className='w-[20%] h-full bg-gray-500/30' onClick={toggleNav}>
-                    <div className=' md:hidden fixed   m-2 p-3 border-2 border-black rounded-xl'>
+                    <div className=' md:hidden fixed bg-white  m-2 p-3 border-2 border-black rounded-xl'>
                         <CloseIcon/>
                     </div>
                 </div>
