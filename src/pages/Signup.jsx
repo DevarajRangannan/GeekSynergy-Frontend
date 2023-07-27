@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import { Link } from 'react-router-dom'
 
-import { CONTAINER, BODY_CONTAINER, LOGIN_CONTAINER, WELCOME_TEXT, SUB_TEXT, FORM } from './style/Signup'
+import { CONTAINER, BODY_CONTAINER, LOGIN_CONTAINER, WELCOME_TEXT, SUB_TEXT, FORM, LOGIN_TILE, INPUT_BOX, ERROR_MSG, SUBMIT_BTN, ALTER_LINK} from './style/Signup'
 
 const LOGIN_STATUS = JSON.parse(localStorage.getItem("Login_Status"))
 
@@ -54,8 +54,6 @@ export default function Signup() {
       window.location.href = "/"
     }
 
-    
-
   }
 
   const nameErrorHidden = ()=>{
@@ -73,21 +71,21 @@ export default function Signup() {
             </div>
 
             <div className={`${LOGIN_CONTAINER}`}>
-                <div className={`w-[90%] md:w-3/5 p-3 text-white text-xl font-semibold bg-[#024d14] rounded-t-lg text-center`}>Signup Form</div>
+                <div className={LOGIN_TILE}>Signup Form</div>
 
                 <form onSubmit={saveCredentials} className={`${FORM}`}>
 
                   <div className={`w-full relative mb-2`}>
-                    <input className={`w-full mb-6 p-3 rounded outline outline-2 outline-[#024d14] `} id='name' type="text" placeholder='Enter name...' autoComplete='on' onChange={nameErrorHidden} required />
+                    <input className={INPUT_BOX} id='name' type="text" placeholder='Enter name...' autoComplete='on' onChange={nameErrorHidden} required />
 
-                    <p className={`bottom-0 right-0 text-right italic text-sm text-red-700 absolute hidden`}id='name_error'>*username already exist</p>
+                    <p className={ERROR_MSG}id='name_error'>*username already exist</p>
                   </div>
 
-                  <input className={`w-full mb-6 p-3 rounded outline outline-2 outline-[#024d14] `} id='email' type="email" placeholder='Enter email...' required autoComplete='on'/>
+                  <input className={INPUT_BOX} id='email' type="email" placeholder='Enter email...' required autoComplete='on'/>
 
-                  <input className={`w-full mb-6 p-3 rounded outline outline-2 outline-[#024d14] `} id='mobile' type="text"  inputMode="numeric" maxLength="10" placeholder='Enter mobile number...' required autoComplete='on'/>
+                  <input className={INPUT_BOX} id='mobile' type="text"  inputMode="numeric" maxLength="10" placeholder='Enter mobile number...' required autoComplete='on'/>
 
-                  <input className={`w-full mb-6 p-3 rounded outline outline-2 outline-[#024d14] `} id='password' type="password" placeholder='Enter password...' required autoComplete='on'/>
+                  <input className={INPUT_BOX} id='password' type="password" placeholder='Enter password...' required autoComplete='on'/>
 
                   <select id="profession" className={`mb-5 p-3 border-2 border-[#024d14] rounded bg-white focus:border-[#024d14]`} required>
                     <option value="">Choose professtion</option>
@@ -97,10 +95,10 @@ export default function Signup() {
                     <option value="tester">Tester</option>                    
                   </select>
 
-                  <button className={`m-auto w-4/5 p-3 lg:p-1 bg-[#076e14] rounded text-xl text-white font-semibold hover:bg-[#034d0c]`} type='submit'>Create Account</button>
+                  <button className={SUBMIT_BTN} type='submit'>Create Account</button>
 
                   <div className={`mt-5 text-center`} >
-                    <Link to="/login" className={`underline hover:text-blue-900`}>Already have an account</Link>
+                    <Link to="/login" className={ALTER_LINK}>Already have an account</Link>
                   </div>
 
                 </form>
