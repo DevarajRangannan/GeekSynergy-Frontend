@@ -71,7 +71,13 @@ export default function NavBar() {
                         <span >GeekSynergy</span>
                     </a>
 
-                    <div className='text-center text-white p-3 m-10 bg-green-800 rounded overflow-hidden'>Company Info</div>
+                      <a href="/company-info">
+                          <div className='text-center text-white p-3 m-10 bg-green-800 rounded overflow-hidden'>
+                              Company Info
+                          </div>
+                      </a>
+
+                    
 
                     <div className='absolute w-full mb-16 p-3 bottom-0 border-t-2 text-white rounded-xl flex flex-col justify-center items-center'>
                         <h3 className='p-3 text-lg'>{JSON.parse(localStorage.getItem("Login_Status")).username}</h3>
@@ -89,7 +95,7 @@ export default function NavBar() {
                 <span>GeekSynergy</span>
             </a>
             <div>
-                <a href="/" className='m-3'>Company Info</a>
+                <a href="/company-info" className='m-3'>Company Info</a>
                 <button className='py-3 px-10 bg-red-500 rounded text-white hover:bg-red-700' onClick={logout}>Logout</button>
             </div>
             

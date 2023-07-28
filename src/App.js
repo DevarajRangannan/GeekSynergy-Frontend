@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
+import Company_Info from './pages/Company_Info'
 export default function App() {
   return (
     <>
@@ -12,6 +13,7 @@ export default function App() {
           <Route exact path='/' Component={Home}/>
           <Route path='/login' Component={Login}/>
           <Route path='/signup' Component={Signup}/>
+          <Route path='/company-info' Component={Company_Info}/>
           <Route path='*' Component={Home}/>
         </Routes>
 
